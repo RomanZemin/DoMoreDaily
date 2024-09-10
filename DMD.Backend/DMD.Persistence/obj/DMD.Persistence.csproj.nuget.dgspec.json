@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\mvide\\source\\repos\\DMD\\DMD.Persistence\\DMD.Persistence.csproj": {}
+    "C:\\Users\\mvide\\source\\repos\\DMD\\DMD.Backend\\DMD.Persistence\\DMD.Persistence.csproj": {}
   },
   "projects": {
-    "C:\\Users\\mvide\\source\\repos\\DMD\\DMD.Domain\\DMD.Domain.csproj": {
+    "C:\\Users\\mvide\\source\\repos\\DMD\\DMD.Backend\\DMD.Domain\\DMD.Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\mvide\\source\\repos\\DMD\\DMD.Domain\\DMD.Domain.csproj",
+        "projectUniqueName": "C:\\Users\\mvide\\source\\repos\\DMD\\DMD.Backend\\DMD.Domain\\DMD.Domain.csproj",
         "projectName": "DMD.Domain",
-        "projectPath": "C:\\Users\\mvide\\source\\repos\\DMD\\DMD.Domain\\DMD.Domain.csproj",
+        "projectPath": "C:\\Users\\mvide\\source\\repos\\DMD\\DMD.Backend\\DMD.Domain\\DMD.Domain.csproj",
         "packagesPath": "C:\\Users\\mvide\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\mvide\\source\\repos\\DMD\\DMD.Domain\\obj\\",
+        "outputPath": "C:\\Users\\mvide\\source\\repos\\DMD\\DMD.Backend\\DMD.Domain\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -69,14 +69,14 @@
         }
       }
     },
-    "C:\\Users\\mvide\\source\\repos\\DMD\\DMD.Persistence\\DMD.Persistence.csproj": {
+    "C:\\Users\\mvide\\source\\repos\\DMD\\DMD.Backend\\DMD.Persistence\\DMD.Persistence.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\mvide\\source\\repos\\DMD\\DMD.Persistence\\DMD.Persistence.csproj",
+        "projectUniqueName": "C:\\Users\\mvide\\source\\repos\\DMD\\DMD.Backend\\DMD.Persistence\\DMD.Persistence.csproj",
         "projectName": "DMD.Persistence",
-        "projectPath": "C:\\Users\\mvide\\source\\repos\\DMD\\DMD.Persistence\\DMD.Persistence.csproj",
+        "projectPath": "C:\\Users\\mvide\\source\\repos\\DMD\\DMD.Backend\\DMD.Persistence\\DMD.Persistence.csproj",
         "packagesPath": "C:\\Users\\mvide\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\mvide\\source\\repos\\DMD\\DMD.Persistence\\obj\\",
+        "outputPath": "C:\\Users\\mvide\\source\\repos\\DMD\\DMD.Backend\\DMD.Persistence\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -98,8 +98,8 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "C:\\Users\\mvide\\source\\repos\\DMD\\DMD.Domain\\DMD.Domain.csproj": {
-                "projectPath": "C:\\Users\\mvide\\source\\repos\\DMD\\DMD.Domain\\DMD.Domain.csproj"
+              "C:\\Users\\mvide\\source\\repos\\DMD\\DMD.Backend\\DMD.Domain\\DMD.Domain.csproj": {
+                "projectPath": "C:\\Users\\mvide\\source\\repos\\DMD\\DMD.Backend\\DMD.Domain\\DMD.Domain.csproj"
               }
             }
           }

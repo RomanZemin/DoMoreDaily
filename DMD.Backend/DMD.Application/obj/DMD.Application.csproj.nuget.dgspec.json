@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\mvide\\source\\repos\\DMD\\DMD.Application\\DMD.Application.csproj": {}
+    "C:\\Users\\mvide\\source\\repos\\DMD\\DMD.Backend\\DMD.Application\\DMD.Application.csproj": {}
   },
   "projects": {
-    "C:\\Users\\mvide\\source\\repos\\DMD\\DMD.Application\\DMD.Application.csproj": {
+    "C:\\Users\\mvide\\source\\repos\\DMD\\DMD.Backend\\DMD.Application\\DMD.Application.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\mvide\\source\\repos\\DMD\\DMD.Application\\DMD.Application.csproj",
+        "projectUniqueName": "C:\\Users\\mvide\\source\\repos\\DMD\\DMD.Backend\\DMD.Application\\DMD.Application.csproj",
         "projectName": "DMD.Application",
-        "projectPath": "C:\\Users\\mvide\\source\\repos\\DMD\\DMD.Application\\DMD.Application.csproj",
+        "projectPath": "C:\\Users\\mvide\\source\\repos\\DMD\\DMD.Backend\\DMD.Application\\DMD.Application.csproj",
         "packagesPath": "C:\\Users\\mvide\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\mvide\\source\\repos\\DMD\\DMD.Application\\obj\\",
+        "outputPath": "C:\\Users\\mvide\\source\\repos\\DMD\\DMD.Backend\\DMD.Application\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

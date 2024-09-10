@@ -522,11 +522,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\mvide\\source\\repos\\DMD\\DMD.Backend\\DMD.WebAPI.csproj",
+      "projectUniqueName": "C:\\Users\\mvide\\source\\repos\\DMD\\DMD.Backend\\DMD.WebAPI\\DMD.WebAPI.csproj",
       "projectName": "DMD.WebAPI",
-      "projectPath": "C:\\Users\\mvide\\source\\repos\\DMD\\DMD.Backend\\DMD.WebAPI.csproj",
+      "projectPath": "C:\\Users\\mvide\\source\\repos\\DMD\\DMD.Backend\\DMD.WebAPI\\DMD.WebAPI.csproj",
       "packagesPath": "C:\\Users\\mvide\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\mvide\\source\\repos\\DMD\\DMD.Backend\\obj\\",
+      "outputPath": "C:\\Users\\mvide\\source\\repos\\DMD\\DMD.Backend\\DMD.WebAPI\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

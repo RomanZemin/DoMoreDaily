@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "5evxe5wXNzM=",
+  "dgSpecHash": "QiWje9i6xog=",
   "success": true,
-  "projectFilePath": "C:\\Users\\mvide\\source\\repos\\DMD\\DMD.Persistence\\DMD.Persistence.csproj",
+  "projectFilePath": "C:\\Users\\mvide\\source\\repos\\DMD\\DMD.Backend\\DMD.Persistence\\DMD.Persistence.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\mvide\\.nuget\\packages\\microsoft.entityframeworkcore\\8.0.8\\microsoft.entityframeworkcore.8.0.8.nupkg.sha512",
     "C:\\Users\\mvide\\.nuget\\packages\\microsoft.entityframeworkcore.abstractions\\8.0.8\\microsoft.entityframeworkcore.abstractions.8.0.8.nupkg.sha512",
