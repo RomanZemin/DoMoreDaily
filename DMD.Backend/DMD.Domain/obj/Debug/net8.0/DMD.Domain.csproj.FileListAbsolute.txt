@@ -1,0 +1,12 @@
+C:\Users\mvide\source\repos\DMD\DMD.Backend\DMD.Domain\bin\Debug\net8.0\DMD.Domain.deps.json
+C:\Users\mvide\source\repos\DMD\DMD.Backend\DMD.Domain\bin\Debug\net8.0\DMD.Domain.dll
+C:\Users\mvide\source\repos\DMD\DMD.Backend\DMD.Domain\bin\Debug\net8.0\DMD.Domain.pdb
+C:\Users\mvide\source\repos\DMD\DMD.Backend\DMD.Domain\obj\Debug\net8.0\DMD.Domain.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\mvide\source\repos\DMD\DMD.Backend\DMD.Domain\obj\Debug\net8.0\DMD.Domain.AssemblyInfoInputs.cache
+C:\Users\mvide\source\repos\DMD\DMD.Backend\DMD.Domain\obj\Debug\net8.0\DMD.Domain.AssemblyInfo.cs
+C:\Users\mvide\source\repos\DMD\DMD.Backend\DMD.Domain\obj\Debug\net8.0\DMD.Domain.csproj.CoreCompileInputs.cache
+C:\Users\mvide\source\repos\DMD\DMD.Backend\DMD.Domain\obj\Debug\net8.0\DMD.Domain.sourcelink.json
+C:\Users\mvide\source\repos\DMD\DMD.Backend\DMD.Domain\obj\Debug\net8.0\DMD.Domain.dll
+C:\Users\mvide\source\repos\DMD\DMD.Backend\DMD.Domain\obj\Debug\net8.0\refint\DMD.Domain.dll
+C:\Users\mvide\source\repos\DMD\DMD.Backend\DMD.Domain\obj\Debug\net8.0\DMD.Domain.pdb
+C:\Users\mvide\source\repos\DMD\DMD.Backend\DMD.Domain\obj\Debug\net8.0\ref\DMD.Domain.dll
