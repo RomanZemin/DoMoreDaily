@@ -1,6 +1,8 @@
 using DMD.Application.Interfaces;
+using DMD.Application.Mappings;
 using DMD.Persistence.Extensions;
 using DMD.Persistence.Services;
+using System.Text.Json.Serialization;
 
 
 namespace DMD.WebAPI
@@ -11,12 +13,18 @@ namespace DMD.WebAPI
         {
             var builder = WebApplication.CreateBuilder(args);
 
-            
+
             builder.Services.AddAppDbContext(builder.Configuration);
             builder.Services.AddScoped<ITaskService, TaskService>();
+            builder.Services.AddAutoMapper(typeof(TaskMappingProfile));
 
-            builder.Services.AddControllers();
-            
+            builder.Services.AddControllers()
+                .AddJsonOptions(options =>
+                {
+                    options.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.IgnoreCycles; // Убираем циклические ссылки
+                    options.JsonSerializerOptions.DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingNull; // Убираем null значения
+                });
+
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
 

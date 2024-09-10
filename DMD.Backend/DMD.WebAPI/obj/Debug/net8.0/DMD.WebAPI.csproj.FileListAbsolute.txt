@@ -42,3 +42,4 @@ C:\Users\mvide\source\repos\DMD\DMD.Backend\DMD.WebAPI\obj\Debug\net8.0\refint\D
 C:\Users\mvide\source\repos\DMD\DMD.Backend\DMD.WebAPI\obj\Debug\net8.0\DMD.WebAPI.pdb
 C:\Users\mvide\source\repos\DMD\DMD.Backend\DMD.WebAPI\obj\Debug\net8.0\DMD.WebAPI.genruntimeconfig.cache
 C:\Users\mvide\source\repos\DMD\DMD.Backend\DMD.WebAPI\obj\Debug\net8.0\ref\DMD.WebAPI.dll
+C:\Users\mvide\source\repos\DMD\DMD.Backend\DMD.WebAPI\bin\Debug\net8.0\AutoMapper.dll

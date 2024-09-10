@@ -1,27 +1,36 @@
-﻿using DMD.Persistence.Data;
+﻿using AutoMapper;
+using DMD.Persistence.Data;
 using DMD.Application.Interfaces;
 using Microsoft.EntityFrameworkCore;
 using DMD.Domain.Entities;
+using DMD.Application.DTOs;
+using System.Threading.Tasks;
 
 namespace DMD.Persistence.Services
 {
     public class TaskService : ITaskService
     {
         private readonly TaskDbContext _context;
+        private readonly IMapper _mapper;
 
-        public TaskService(TaskDbContext context)
+        public TaskService(TaskDbContext context, IMapper mapper)
         {
             _context = context;
+            _mapper = mapper;
         }
 
-        public async Task<IEnumerable<TodoTask>> GetAllTasksAsync()
+        public async Task<IEnumerable<TaskDto>> GetAllTasksAsync()
         {
-            return await _context.Tasks.Include(t => t.SubTasks).ToListAsync();
+            var tasks = await _context.Tasks
+                .Include(t => t.SubTasks) // Загрузка подзадач
+                .ToListAsync();
+            return _mapper.Map<IEnumerable<TaskDto>>(tasks);
         }
 
-        public async Task<TodoTask> GetTaskByIdAsync(int id)
+        public async Task<TaskDto> GetTaskByIdAsync(int id)
         {
-            return await _context.Tasks.Include(t => t.SubTasks).FirstOrDefaultAsync(t => t.Id == id);
+            var task = await _context.Tasks.Include(t => t.SubTasks).FirstOrDefaultAsync(t => t.Id == id);
+            return _mapper.Map<TaskDto>(task);
         }
 
         public async Task CreateTaskAsync(TodoTask task)
@@ -39,11 +48,25 @@ namespace DMD.Persistence.Services
         public async Task DeleteTaskAsync(int id)
         {
             var task = await _context.Tasks.FindAsync(id);
-            if (task == null || task.SubTasks.Any())
-                throw new InvalidOperationException("Невозможно удалить задачу с подзадачами или несуществующую задачу.");
+            if (task == null)
+                throw new InvalidOperationException("Задача не найдена.");
+
+            if (await HasSubTasksAsync(id))
+                throw new InvalidOperationException("Невозможно удалить задачу с подзадачами.");
+
             _context.Tasks.Remove(task);
             await _context.SaveChangesAsync();
         }
+        private async Task<bool> HasSubTasksAsync(int taskId)
+        {
+            return await _context.Tasks.AnyAsync(t => t.ParentTaskID == taskId);
+        }
+        private bool IsValidStatus(string status)
+        {
+            var validStatuses = new[] { "Назначена", "Выполняется", "Приостановлена", "Завершена" };
+            return validStatuses.Contains(status);
+        }
+
 
         public async Task ChangeTaskStatusAsync(int taskId, string status)
         {

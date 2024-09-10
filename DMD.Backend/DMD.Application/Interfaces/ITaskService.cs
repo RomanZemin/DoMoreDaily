@@ -1,11 +1,12 @@
-﻿using DMD.Domain.Entities;
+﻿using DMD.Application.DTOs;
+using DMD.Domain.Entities;
 
 namespace DMD.Application.Interfaces
 {
     public interface ITaskService
     {
-        Task<IEnumerable<TodoTask>> GetAllTasksAsync();
-        Task<TodoTask> GetTaskByIdAsync(int id);
+        Task<IEnumerable<TaskDto>> GetAllTasksAsync();
+        Task<TaskDto> GetTaskByIdAsync(int id);
         Task CreateTaskAsync(TodoTask task);
         Task UpdateTaskAsync(TodoTask task);
         Task DeleteTaskAsync(int id);
