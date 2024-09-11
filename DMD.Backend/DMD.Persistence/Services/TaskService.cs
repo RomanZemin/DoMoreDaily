@@ -22,7 +22,8 @@ namespace DMD.Persistence.Services
         public async Task<IEnumerable<TaskDto>> GetAllTasksAsync()
         {
             var tasks = await _context.Tasks
-                .Include(t => t.SubTasks) // Загрузка подзадач
+                .Where(t => t.ParentTaskID == null) // Фильтруем только задачи верхнего уровня
+                .Include(t => t.SubTasks)           // Включаем подзадачи
                 .ToListAsync();
             return _mapper.Map<IEnumerable<TaskDto>>(tasks);
         }
@@ -51,8 +52,8 @@ namespace DMD.Persistence.Services
             if (task == null)
                 throw new InvalidOperationException("Задача не найдена.");
 
-            if (await HasSubTasksAsync(id))
-                throw new InvalidOperationException("Невозможно удалить задачу с подзадачами.");
+            //if (await HasSubTasksAsync(id))
+            //    throw new InvalidOperationException("Невозможно удалить задачу с подзадачами.");
 
             _context.Tasks.Remove(task);
             await _context.SaveChangesAsync();
@@ -70,7 +71,10 @@ namespace DMD.Persistence.Services
 
         public async Task ChangeTaskStatusAsync(int taskId, string status)
         {
-            var task = await _context.Tasks.Include(t => t.SubTasks).FirstOrDefaultAsync(t => t.Id == taskId);
+            var task = await _context.Tasks
+                .Include(t => t.SubTasks)
+                .FirstOrDefaultAsync(t => t.Id == taskId);
+
             if (task == null)
                 throw new InvalidOperationException("Задача не найдена.");
 

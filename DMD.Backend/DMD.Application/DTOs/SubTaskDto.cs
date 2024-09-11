@@ -10,5 +10,6 @@
         public string? Status { get; set; }
         public int PlannedEffort { get; set; }
         public int ActualEffort { get; set; }
+        public int? ParentTaskID { get; set; }
     }
 }
