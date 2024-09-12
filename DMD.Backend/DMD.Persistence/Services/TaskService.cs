@@ -73,6 +73,16 @@ namespace DMD.Persistence.Services
         public async Task CreateTaskAsync(TodoTask task)
         {
             task.RegistrationDate = task.RegistrationDate.ToUniversalTime();
+
+            // Если у задачи есть подзадачи, нужно убедиться, что они не будут добавлены повторно.
+            if (task.SubTasks != null && task.SubTasks.Any())
+            {
+                foreach (var subTask in task.SubTasks)
+                {
+                    subTask.ParentTaskID = task.Id; // Убедимся, что у подзадач корректно проставлен ParentTaskID
+                }
+            }
+
             _context.Tasks.Add(task);
             await _context.SaveChangesAsync();
         }
