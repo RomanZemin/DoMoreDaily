@@ -10,5 +10,6 @@ export interface TodoTask {
   plannedEffort: number;
   actualEffort: number;
   completionDate?: string; // Необязательно
+  subTasks?: TodoTask[]
 }
 

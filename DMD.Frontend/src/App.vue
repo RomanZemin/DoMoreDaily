@@ -6,10 +6,10 @@
     <div class="content">
       <div class="task-tree">
         <button @click="showCreateTaskForm = true" class="create-task-button">Создать основную задачу</button>
-        <TaskList :tasks="tasks" @selectTask="handleTaskSelection" @selectParentTask="handleParentTaskSelection" />
+        <TaskList :tasks="tasks" @selectTask="handleTaskSelection" />
       </div>
       <div class="task-details" v-if="selectedTask">
-        <TaskDetails :task="selectedTask" @taskDeleted="removeTaskFromList" />
+        <TaskDetails :task="selectedTask" @taskDeleted="removeTaskFromList" @taskUpdated="UpdateTaskData" />
       </div>
       <div v-if="showCreateTaskForm" class="create-task-form-container">
         <CreateTaskForm @taskCreated="handleTaskCreated" @closeForm="showCreateTaskForm = false" />
@@ -58,12 +58,16 @@ export default defineComponent({
       this.tasks = this.tasks.filter(task => task.id !== taskId);
       this.selectedTask = null;
     },
+    async UpdateTaskData(taskId: number){
+      try {
+        this.selectedTask = await TaskService.getTask(taskId);
+      } catch (error) {
+        console.error('Ошибка при получении задач:', error);
+      }
+    },
     async handleTaskCreated() {
       this.showCreateTaskForm = false;
       await this.loadTasks();
-    },
-    handleParentTaskSelection(task: TodoTask) {
-      this.selectedTask = task;
     }
   }
 });

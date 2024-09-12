@@ -1,7 +1,13 @@
 <template>
     <div class="create-task-form">
-        <h2>Создать основную задачу</h2>
-        <input v-model="newTask.taskName" placeholder="Название задачи" class="input-field" />
+        <h2 v-if="parentTask">Создать подзадачу</h2>
+        <h2 v-else>Создать основную задачу</h2>
+        <h4 v-if="parentTask">К задаче:</h4>
+        <input v-if="parentTask" v-model="parentTask.taskName" readonly class="input-field" />
+        <input v-if="parentTask" v-model="newTask.taskName" placeholder="Название подзадачи" class="input-field" />
+        <input v-else v-model="newTask.taskName" placeholder="Название задачи" class="input-field" />
+        <input v-model="newTask.assignees" placeholder="Исполнитель" class="input-field" />
+        <input v-model="newTask.plannedEffort" placeholder="Планируемое усилие" class="input-field" />
         <textarea v-model="newTask.description" placeholder="Описание задачи" class="textarea-field"></textarea>
         <select v-model="newTask.status" class="status-select">
             <option>Назначена</option>
@@ -9,8 +15,10 @@
             <option>Приостановлена</option>
             <option>Завершена</option>
         </select>
-        <button @click="createTask" class="create-task-button">Создать задачу</button>
-        <button @click="closeForm" class="cancel-button">Отмена</button>
+        <p>
+            <button @click="createTask" class="create-task-button">Создать задачу</button>
+            <button @click="closeForm" class="cancel-button">Отмена</button>
+        </p>
     </div>
 </template>
 
@@ -21,9 +29,16 @@ import type { TodoTask } from '@/services/types/TodoTask';
 
 export default defineComponent({
     name: 'CreateTaskForm',
+    props: {
+        parentTask: {
+            type: Object as () => TodoTask | null,
+            default: null
+        }
+    },
     data() {
         return {
             newTask: {
+                parentTaskID: this.parentTask ? this.parentTask.id : null, // Привязываем ID родительской задачи
                 taskName: '',
                 description: '',
                 assignees: '',
@@ -56,6 +71,7 @@ export default defineComponent({
 });
 </script>
 
+
 <style scoped lang="scss">
 .create-task-form {
     background-color: #1e1e1e;
@@ -72,7 +88,7 @@ export default defineComponent({
     border-radius: 4px;
     padding: 8px;
     margin-bottom: 16px;
-    width: 100%;
+    width: 97%;
 }
 
 .textarea-field {
@@ -86,7 +102,7 @@ export default defineComponent({
     border: 1px solid #444;
     border-radius: 4px;
     padding: 8px;
-    margin-bottom: 16px;
+    margin-bottom: 2px;
 }
 
 .create-task-button,
