@@ -10,8 +10,6 @@ namespace DMD.Application.Mappings
         {
             CreateMap<TodoTask, TaskDto>()
                 .ForMember(dest => dest.SubTasks, opt => opt.MapFrom(src => src.SubTasks));
-
-            CreateMap<TodoTask, SubTaskDto>();
         }
     }
 }

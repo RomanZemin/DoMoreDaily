@@ -1,4 +1,6 @@
 ﻿
+using DMD.Domain.Entities;
+
 namespace DMD.Application.DTOs
 {
     public class TaskDto
@@ -11,6 +13,6 @@ namespace DMD.Application.DTOs
         public string? Status { get; set; } 
         public int PlannedEffort { get; set; }
         public int ActualEffort { get; set; }
-        public List<SubTaskDto>? SubTasks { get; set; }
+        public ICollection<TaskDto> SubTasks { get; set; } = new List<TaskDto>();
     }
 }

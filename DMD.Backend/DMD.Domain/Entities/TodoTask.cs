@@ -3,7 +3,6 @@
     {
         public int Id { get; set; }
         public int? ParentTaskID { get; set; }
-        public TodoTask? ParentTask { get; set; }
         public string? TaskName { get; set; } 
         public string? Description { get; set; } 
         public string? Assignees { get; set; } 

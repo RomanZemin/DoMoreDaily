@@ -22,10 +22,46 @@ namespace DMD.Persistence.Services
         public async Task<IEnumerable<TaskDto>> GetAllTasksAsync()
         {
             var tasks = await _context.Tasks
-                .Where(t => t.ParentTaskID == null) // Фильтруем только задачи верхнего уровня
-                .Include(t => t.SubTasks)           // Включаем подзадачи
+                .AsNoTracking()
+                .Where(t => t.ParentTaskID == null)
+                .Include(t => t.SubTasks)
                 .ToListAsync();
-            return _mapper.Map<IEnumerable<TaskDto>>(tasks);
+            foreach (var task in tasks)
+            {
+                Console.WriteLine($"Task: {task.TaskName}, SubTasks Count: {task.SubTasks.Count}");
+            }
+
+            // Рекурсивный метод для получения всех подзадач
+            IEnumerable<TaskDto> GetAllSubTasks(TodoTask task)
+            {
+                // Маппинг текущей задачи в DTO
+                var taskDto = _mapper.Map<TaskDto>(task);
+
+                // Проверка на наличие подзадач и их рекурсивная обработка
+                if (task.SubTasks != null && task.SubTasks.Any())
+                {
+                    // Для каждой подзадачи рекурсивно получаем подподзадачи
+                    taskDto.SubTasks = task.SubTasks
+                        .Select(subTask => _mapper.Map<TaskDto>(subTask))
+                        .ToList();
+
+                    foreach (var subTaskDto in taskDto.SubTasks)
+                    {
+                        // Найдем подзадачу в оригинальных задачах и добавим её подподзадачи
+                        var originalSubTask = task.SubTasks.First(t => t.Id == subTaskDto.Id);
+                        subTaskDto.SubTasks = GetAllSubTasks(originalSubTask).ToList();
+                    }
+                }
+
+                return new List<TaskDto> { taskDto };
+            }
+
+            // Обрабатываем все верхнеуровневые задачи и рекурсивно получаем все подзадачи
+            var result = tasks
+                .SelectMany(t => GetAllSubTasks(t))
+                .ToList();
+
+            return result;
         }
 
         public async Task<TaskDto> GetTaskByIdAsync(int id)
@@ -36,12 +72,14 @@ namespace DMD.Persistence.Services
 
         public async Task CreateTaskAsync(TodoTask task)
         {
+            task.RegistrationDate = task.RegistrationDate.ToUniversalTime();
             _context.Tasks.Add(task);
             await _context.SaveChangesAsync();
         }
 
         public async Task UpdateTaskAsync(TodoTask task)
         {
+            task.RegistrationDate = task.RegistrationDate.ToUniversalTime();
             _context.Tasks.Update(task);
             await _context.SaveChangesAsync();
         }
