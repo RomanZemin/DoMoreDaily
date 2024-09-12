@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "BvpaCdKHKd4=",
+  "dgSpecHash": "MqC/p3u1iOk=",
   "success": true,
-  "projectFilePath": "C:\\Users\\mvide\\source\\repos\\DMD\\DMD.Backend\\DMD.Persistence\\DMD.Persistence.csproj",
+  "projectFilePath": "D:\\VS Code projects\\DMD\\DMD.Backend\\DMD.Persistence\\DMD.Persistence.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\mvide\\.nuget\\packages\\automapper\\13.0.1\\automapper.13.0.1.nupkg.sha512",
     "C:\\Users\\mvide\\.nuget\\packages\\microsoft.entityframeworkcore\\8.0.8\\microsoft.entityframeworkcore.8.0.8.nupkg.sha512",

@@ -14,11 +14,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\mvide\\source\\repos\\DMD\\DMD.Backend\\DMD.Domain\\DMD.Domain.csproj",
+      "projectUniqueName": "D:\\VS Code projects\\DMD\\DMD.Backend\\DMD.Domain\\DMD.Domain.csproj",
       "projectName": "DMD.Domain",
-      "projectPath": "C:\\Users\\mvide\\source\\repos\\DMD\\DMD.Backend\\DMD.Domain\\DMD.Domain.csproj",
+      "projectPath": "D:\\VS Code projects\\DMD\\DMD.Backend\\DMD.Domain\\DMD.Domain.csproj",
       "packagesPath": "C:\\Users\\mvide\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\mvide\\source\\repos\\DMD\\DMD.Backend\\DMD.Domain\\obj\\",
+      "outputPath": "D:\\VS Code projects\\DMD\\DMD.Backend\\DMD.Domain\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

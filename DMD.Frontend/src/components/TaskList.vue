@@ -1,35 +1,62 @@
 <template>
   <div>
     <ul>
-      <li v-for="task in tasks" :key="task.id" class="task-item">
-        <span @click="selectTask(task)">
-          {{ task.taskName }} ({{ task.status }})
-          <button v-if="task.parentTaskID == null" @click="selectParentTask(task)" class="add-subtask-button">+</button>
-        </span>
-        <TaskList v-if="task.subTasks && task.subTasks.length" :tasks="task.subTasks" @selectTask="selectTask" @selectParentTask="selectParentTask" />
-      </li>
+      <task-item
+        v-for="task in tasks"
+        :key="task.id"
+        :task="task"
+        @selectTask="selectTask"
+        @selectParentTask="selectParentTask"
+      />
     </ul>
+
+    <!-- Модальное окно для создания подзадачи -->
+    <div v-if="showSubTaskForm" class="modal-overlay" @click.self="closeModal">
+      <div class="modal-content">
+        <CreateTaskForm :parentTask="selectedTask" @taskCreated="onTaskCreated" @closeForm="closeModal" />
+      </div>
+    </div>
   </div>
 </template>
 
 <script lang="ts">
 import { defineComponent } from 'vue';
+import TaskItem from '@/components/TaskItem.vue';
+import CreateTaskForm from '@/components/CreateTaskForm.vue';
 import type { TodoTask } from '@/services/types/TodoTask';
 
 export default defineComponent({
   name: 'TaskList',
+  components: {
+    TaskItem,
+    CreateTaskForm
+  },
   props: {
     tasks: {
       type: Array as () => TodoTask[],
       required: true
     }
   },
+  data() {
+    return {
+      showSubTaskForm: false,
+      selectedTask: null as TodoTask | null
+    };
+  },
   methods: {
     selectTask(task: TodoTask) {
       this.$emit('selectTask', task);
     },
     selectParentTask(task: TodoTask) {
-      this.$emit('selectParentTask', task);
+      this.selectedTask = task;
+      this.showSubTaskForm = true;
+    },
+    closeModal() {
+      this.showSubTaskForm = false;
+    },
+    onTaskCreated() {
+      this.showSubTaskForm = false;
+      this.$emit('taskUpdated');
     }
   }
 });
@@ -41,38 +68,23 @@ ul {
   padding: 0;
   margin: 0;
 }
-
-.task-item {
-  padding: 8px;
-  border-bottom: 1px solid #333;
-  color: #e0e0e0;
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
   display: flex;
-  justify-content: space-between;
   align-items: center;
+  justify-content: center;
+}
 
-  &:last-child {
-    border-bottom: none;
-  }
-
-  span {
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-  }
-
-  .add-subtask-button {
-    background-color: #ff5722;
-    border: none;
-    color: #fff;
-    padding: 4px 8px;
-    border-radius: 4px;
-    cursor: pointer;
-    font-size: 14px;
-    margin-left: 8px;
-
-    &:hover {
-      background-color: #e64a19;
-    }
-  }
+.modal-content {
+  background: #1e1e1e;
+  padding: 20px;
+  border-radius: 8px;
+  max-width: 500px;
+  width: 100%;
 }
 </style>
