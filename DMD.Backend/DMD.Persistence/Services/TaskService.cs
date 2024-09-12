@@ -21,48 +21,38 @@ namespace DMD.Persistence.Services
 
         public async Task<IEnumerable<TaskDto>> GetAllTasksAsync()
         {
-            var tasks = await _context.Tasks
+            // Загружаем все задачи и подзадачи одним запросом
+            var allTasks = await _context.Tasks
                 .AsNoTracking()
-                .Where(t => t.ParentTaskID == null)
-                .Include(t => t.SubTasks)
                 .ToListAsync();
-            foreach (var task in tasks)
-            {
-                Console.WriteLine($"Task: {task.TaskName}, SubTasks Count: {task.SubTasks.Count}");
-            }
 
-            // Рекурсивный метод для получения всех подзадач
-            IEnumerable<TaskDto> GetAllSubTasks(TodoTask task)
+            // Рекурсивный метод для маппинга подзадач
+            TaskDto MapTask(TodoTask task, List<TodoTask> allTasks)
             {
-                // Маппинг текущей задачи в DTO
                 var taskDto = _mapper.Map<TaskDto>(task);
 
-                // Проверка на наличие подзадач и их рекурсивная обработка
-                if (task.SubTasks != null && task.SubTasks.Any())
-                {
-                    // Для каждой подзадачи рекурсивно получаем подподзадачи
-                    taskDto.SubTasks = task.SubTasks
-                        .Select(subTask => _mapper.Map<TaskDto>(subTask))
-                        .ToList();
+                // Найти подзадачи для текущей задачи
+                var subTasks = allTasks.Where(t => t.ParentTaskID == task.Id).ToList();
 
-                    foreach (var subTaskDto in taskDto.SubTasks)
-                    {
-                        // Найдем подзадачу в оригинальных задачах и добавим её подподзадачи
-                        var originalSubTask = task.SubTasks.First(t => t.Id == subTaskDto.Id);
-                        subTaskDto.SubTasks = GetAllSubTasks(originalSubTask).ToList();
-                    }
+                // Если подзадачи найдены, рекурсивно маппим их
+                if (subTasks.Any())
+                {
+                    taskDto.SubTasks = subTasks.Select(subTask => MapTask(subTask, allTasks)).ToList();
                 }
 
-                return new List<TaskDto> { taskDto };
+                return taskDto;
             }
 
-            // Обрабатываем все верхнеуровневые задачи и рекурсивно получаем все подзадачи
-            var result = tasks
-                .SelectMany(t => GetAllSubTasks(t))
-                .ToList();
+            // Ищем все верхнеуровневые задачи (без ParentTaskID)
+            var rootTasks = allTasks.Where(t => t.ParentTaskID == null).ToList();
+
+            // Обрабатываем все верхнеуровневые задачи и рекурсивно маппим подзадачи
+            var result = rootTasks.Select(task => MapTask(task, allTasks)).ToList();
 
             return result;
         }
+
+
 
         public async Task<TaskDto> GetTaskByIdAsync(int id)
         {
