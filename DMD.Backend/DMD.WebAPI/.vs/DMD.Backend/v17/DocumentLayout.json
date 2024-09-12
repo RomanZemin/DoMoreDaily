@@ -3,29 +3,29 @@
   "WorkspaceRootPath": "C:\\Users\\mvide\\source\\repos\\DMD\\DMD.Backend\\DMD.WebAPI\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{A8C81A72-F93A-46B0-8A5F-74EA14218964}|..\\DMD.Application\\DMD.Application.csproj|c:\\users\\mvide\\source\\repos\\dmd\\dmd.backend\\dmd.application\\dtos\\taskdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A8C81A72-F93A-46B0-8A5F-74EA14218964}|..\\DMD.Application\\DMD.Application.csproj|c:\\users\\mvide\\source\\repos\\dmd\\dmd.backend\\dmd.application\\dtos\\subtaskdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{01DF9A24-01E1-45FE-A8B0-8C7EE5961119}|DMD.WebAPI.csproj|c:\\users\\mvide\\source\\repos\\dmd\\dmd.backend\\dmd.webapi\\controllers\\taskcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{01DF9A24-01E1-45FE-A8B0-8C7EE5961119}|DMD.WebAPI.csproj|solutionrelative:controllers\\taskcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{CDA967D1-9A6C-4AE3-BA5C-C5AA87EBAA5F}|..\\DMD.Domain\\DMD.Domain.csproj|c:\\users\\mvide\\source\\repos\\dmd\\dmd.backend\\dmd.domain\\entities\\todotask.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{F415995A-606D-4286-8864-17C8C90060DE}|..\\DMD.Persistence\\DMD.Persistence.csproj|c:\\users\\mvide\\source\\repos\\dmd\\dmd.backend\\dmd.persistence\\services\\taskservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A8C81A72-F93A-46B0-8A5F-74EA14218964}|..\\DMD.Application\\DMD.Application.csproj|c:\\users\\mvide\\source\\repos\\dmd\\dmd.backend\\dmd.application\\interfaces\\itaskservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{01DF9A24-01E1-45FE-A8B0-8C7EE5961119}|DMD.WebAPI.csproj|c:\\users\\mvide\\source\\repos\\dmd\\dmd.backend\\dmd.webapi\\controllers\\taskcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{01DF9A24-01E1-45FE-A8B0-8C7EE5961119}|DMD.WebAPI.csproj|solutionrelative:controllers\\taskcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{F415995A-606D-4286-8864-17C8C90060DE}|..\\DMD.Persistence\\DMD.Persistence.csproj|c:\\users\\mvide\\source\\repos\\dmd\\dmd.backend\\dmd.persistence\\data\\taskdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{F415995A-606D-4286-8864-17C8C90060DE}|..\\DMD.Persistence\\DMD.Persistence.csproj|c:\\users\\mvide\\source\\repos\\dmd\\dmd.backend\\dmd.persistence\\extensions\\servicecollectionextension.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A8C81A72-F93A-46B0-8A5F-74EA14218964}|..\\DMD.Application\\DMD.Application.csproj|c:\\users\\mvide\\source\\repos\\dmd\\dmd.backend\\dmd.application\\dtos\\taskdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A8C81A72-F93A-46B0-8A5F-74EA14218964}|..\\DMD.Application\\DMD.Application.csproj|c:\\users\\mvide\\source\\repos\\dmd\\dmd.backend\\dmd.application\\dtos\\subtaskdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F415995A-606D-4286-8864-17C8C90060DE}|..\\DMD.Persistence\\DMD.Persistence.csproj|c:\\users\\mvide\\source\\repos\\dmd\\dmd.backend\\dmd.persistence\\services\\taskservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A8C81A72-F93A-46B0-8A5F-74EA14218964}|..\\DMD.Application\\DMD.Application.csproj|c:\\users\\mvide\\source\\repos\\dmd\\dmd.backend\\dmd.application\\interfaces\\itaskservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{01DF9A24-01E1-45FE-A8B0-8C7EE5961119}|DMD.WebAPI.csproj|c:\\users\\mvide\\source\\repos\\dmd\\dmd.backend\\dmd.webapi\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -42,7 +42,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 8,
+          "SelectedChildIndex": 11,
           "Children": [
             {
               "$type": "Bookmark",
@@ -74,20 +74,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "TodoTask.cs",
-              "DocumentMoniker": "C:\\Users\\mvide\\source\\repos\\DMD\\DMD.Backend\\DMD.Domain\\Entities\\TodoTask.cs",
-              "RelativeDocumentMoniker": "..\\DMD.Domain\\Entities\\TodoTask.cs",
-              "ToolTip": "C:\\Users\\mvide\\source\\repos\\DMD\\DMD.Backend\\DMD.Domain\\Entities\\TodoTask.cs",
-              "RelativeToolTip": "..\\DMD.Domain\\Entities\\TodoTask.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAIAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-11T10:09:27.42Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 4,
               "Title": "TaskDto.cs",
               "DocumentMoniker": "C:\\Users\\mvide\\source\\repos\\DMD\\DMD.Backend\\DMD.Application\\DTOs\\TaskDto.cs",
               "RelativeDocumentMoniker": "..\\DMD.Application\\DTOs\\TaskDto.cs",
@@ -96,19 +83,6 @@
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-09-11T10:09:18.807Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "SubTaskDto.cs",
-              "DocumentMoniker": "C:\\Users\\mvide\\source\\repos\\DMD\\DMD.Backend\\DMD.Application\\DTOs\\SubTaskDto.cs",
-              "RelativeDocumentMoniker": "..\\DMD.Application\\DTOs\\SubTaskDto.cs",
-              "ToolTip": "C:\\Users\\mvide\\source\\repos\\DMD\\DMD.Backend\\DMD.Application\\DTOs\\SubTaskDto.cs",
-              "RelativeToolTip": "..\\DMD.Application\\DTOs\\SubTaskDto.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAuAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-10T16:11:52.931Z",
               "EditorCaption": ""
             },
             {
@@ -125,7 +99,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 7,
               "Title": "ITaskService.cs",
               "DocumentMoniker": "C:\\Users\\mvide\\source\\repos\\DMD\\DMD.Backend\\DMD.Application\\Interfaces\\ITaskService.cs",
               "RelativeDocumentMoniker": "..\\DMD.Application\\Interfaces\\ITaskService.cs",
@@ -133,12 +107,11 @@
               "RelativeToolTip": "..\\DMD.Application\\Interfaces\\ITaskService.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAtwAsAAAANAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-10T15:49:50.464Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-09-10T15:49:50.464Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 6,
               "Title": "TaskService.cs",
               "DocumentMoniker": "C:\\Users\\mvide\\source\\repos\\DMD\\DMD.Backend\\DMD.Persistence\\Services\\TaskService.cs",
               "RelativeDocumentMoniker": "..\\DMD.Persistence\\Services\\TaskService.cs",
@@ -146,33 +119,70 @@
               "RelativeToolTip": "..\\DMD.Persistence\\Services\\TaskService.cs",
               "ViewState": "AgIAACsAAAAAAAAAAAArwDgAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-10T15:23:49.996Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-09-10T15:23:49.996Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 0,
               "Title": "TaskController.cs",
               "DocumentMoniker": "C:\\Users\\mvide\\source\\repos\\DMD\\DMD.Backend\\DMD.WebAPI\\Controllers\\TaskController.cs",
               "RelativeDocumentMoniker": "Controllers\\TaskController.cs",
               "ToolTip": "C:\\Users\\mvide\\source\\repos\\DMD\\DMD.Backend\\DMD.WebAPI\\Controllers\\TaskController.cs",
               "RelativeToolTip": "Controllers\\TaskController.cs",
-              "ViewState": "AgIAACUAAAAAAAAAAAAcwDQAAAAmAAAAAAAAAA==",
+              "ViewState": "AgIAAA8AAAAAAAAAAAAowDQAAAAmAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-09-10T15:22:38.351Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 2,
               "Title": "TaskDbContext.cs",
               "DocumentMoniker": "C:\\Users\\mvide\\source\\repos\\DMD\\DMD.Backend\\DMD.Persistence\\Data\\TaskDbContext.cs",
               "RelativeDocumentMoniker": "..\\DMD.Persistence\\Data\\TaskDbContext.cs",
               "ToolTip": "C:\\Users\\mvide\\source\\repos\\DMD\\DMD.Backend\\DMD.Persistence\\Data\\TaskDbContext.cs",
               "RelativeToolTip": "..\\DMD.Persistence\\Data\\TaskDbContext.cs",
-              "ViewState": "AgIAAAYAAAAAAAAAAAAAAB0AAABsAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAB0AAACLAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-09-10T15:22:12.487Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "ServiceCollectionExtension.cs",
+              "DocumentMoniker": "C:\\Users\\mvide\\source\\repos\\DMD\\DMD.Backend\\DMD.Persistence\\Extensions\\ServiceCollectionExtension.cs",
+              "RelativeDocumentMoniker": "..\\DMD.Persistence\\Extensions\\ServiceCollectionExtension.cs",
+              "ToolTip": "C:\\Users\\mvide\\source\\repos\\DMD\\DMD.Backend\\DMD.Persistence\\Extensions\\ServiceCollectionExtension.cs",
+              "RelativeToolTip": "..\\DMD.Persistence\\Extensions\\ServiceCollectionExtension.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-10T16:12:10.907Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "SubTaskDto.cs",
+              "DocumentMoniker": "C:\\Users\\mvide\\source\\repos\\DMD\\DMD.Backend\\DMD.Application\\DTOs\\SubTaskDto.cs",
+              "RelativeDocumentMoniker": "..\\DMD.Application\\DTOs\\SubTaskDto.cs",
+              "ToolTip": "C:\\Users\\mvide\\source\\repos\\DMD\\DMD.Backend\\DMD.Application\\DTOs\\SubTaskDto.cs",
+              "RelativeToolTip": "..\\DMD.Application\\DTOs\\SubTaskDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAuAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-10T16:11:52.931Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "TodoTask.cs",
+              "DocumentMoniker": "C:\\Users\\mvide\\source\\repos\\DMD\\DMD.Backend\\DMD.Domain\\Entities\\TodoTask.cs",
+              "RelativeDocumentMoniker": "..\\DMD.Domain\\Entities\\TodoTask.cs",
+              "ToolTip": "C:\\Users\\mvide\\source\\repos\\DMD\\DMD.Backend\\DMD.Domain\\Entities\\TodoTask.cs",
+              "RelativeToolTip": "..\\DMD.Domain\\Entities\\TodoTask.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-11T10:09:27.42Z",
               "EditorCaption": ""
             },
             {
@@ -185,21 +195,7 @@
               "RelativeToolTip": "Program.cs",
               "ViewState": "AgIAAB0AAAAAAAAAAAAAwCMAAAAPAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-10T15:19:55.987Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "ServiceCollectionExtension.cs",
-              "DocumentMoniker": "C:\\Users\\mvide\\source\\repos\\DMD\\DMD.Backend\\DMD.Persistence\\Extensions\\ServiceCollectionExtension.cs",
-              "RelativeDocumentMoniker": "..\\DMD.Persistence\\Extensions\\ServiceCollectionExtension.cs",
-              "ToolTip": "C:\\Users\\mvide\\source\\repos\\DMD\\DMD.Backend\\DMD.Persistence\\Extensions\\ServiceCollectionExtension.cs",
-              "RelativeToolTip": "..\\DMD.Persistence\\Extensions\\ServiceCollectionExtension.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-10T16:12:10.907Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-09-10T15:19:55.987Z"
             }
           ]
         }
