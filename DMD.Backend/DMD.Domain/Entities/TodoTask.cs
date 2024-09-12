@@ -11,7 +11,6 @@
         public decimal PlannedEffort { get; set; }
         public decimal ActualEffort { get; set; }
         public DateTime? CompletionDate { get; set; }
-
         public List<TodoTask> SubTasks { get; set; } = new List<TodoTask>();
     }
 }

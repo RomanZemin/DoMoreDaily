@@ -6,6 +6,7 @@ namespace DMD.Application.DTOs
     public class TaskDto
     {
         public int Id { get; set; }
+        public int? ParentTaskID { get; set; }
         public string? TaskName { get; set; } 
         public string? Description { get; set; } 
         public string? Assignees { get; set; } 

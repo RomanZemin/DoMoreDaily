@@ -44,7 +44,10 @@ namespace DMD.Persistence.Services
             }
 
             // Ищем все верхнеуровневые задачи (без ParentTaskID)
-            var rootTasks = allTasks.Where(t => t.ParentTaskID == null).ToList();
+            var rootTasks = allTasks
+                .Where(t => t.ParentTaskID == null)
+                .OrderBy(t => t.TaskName)
+                .ToList();
 
             // Обрабатываем все верхнеуровневые задачи и рекурсивно маппим подзадачи
             var result = rootTasks.Select(task => MapTask(task, allTasks)).ToList();
@@ -79,7 +82,18 @@ namespace DMD.Persistence.Services
 
         public async Task UpdateTaskAsync(TodoTask task)
         {
-            task.RegistrationDate = task.RegistrationDate.ToUniversalTime();
+            // Проверяем, если дата не в UTC и у неё неопределённый Kind, конвертируем в UTC
+            if (task.RegistrationDate.Kind == DateTimeKind.Unspecified)
+            {
+                // Предположим, что неуказанный Kind - это местное время, конвертируем в UTC
+                task.RegistrationDate = DateTime.SpecifyKind(task.RegistrationDate, DateTimeKind.Local).ToUniversalTime();
+            }
+            else if (task.RegistrationDate.Kind == DateTimeKind.Local)
+            {
+                // Если это местное время, конвертируем его в UTC
+                task.RegistrationDate = task.RegistrationDate.ToUniversalTime();
+            }
+
             _context.Tasks.Update(task);
             await _context.SaveChangesAsync();
         }

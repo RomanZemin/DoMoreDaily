@@ -27,7 +27,14 @@ namespace DMD.Persistence.Data
 
             // Добавление ограничения CHECK для статусов
             modelBuilder.Entity<TodoTask>()
-                .ToTable(t => t.HasCheckConstraint("CK_Task_Status", "[Status] IN ('Назначена', 'Выполняется', 'Приостановлена', 'Завершена')"));
+                .ToTable(t => t.HasCheckConstraint("CK_Task_Status", "Status IN ('Назначена', 'Выполняется', 'Приостановлена', 'Завершена')"));
+
+            modelBuilder.Entity<TodoTask>()
+                .Property(t => t.RegistrationDate)
+                .HasConversion(
+                    v => v.ToUniversalTime(),
+                    v => DateTime.SpecifyKind(v, DateTimeKind.Utc))
+                .IsRequired();
         }
     }
 
