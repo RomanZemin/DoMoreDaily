@@ -10191,9 +10191,9 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\mvide\\source\\repos\\DMD\\DMD.Backend\\DMD.Tests\\DMD.Tests.csproj",
-      "projectName": "DMD.Tests",
-      "projectPath": "C:\\Users\\mvide\\source\\repos\\DMD\\DMD.Backend\\DMD.Tests\\DMD.Tests.csproj",
+      "projectUniqueName": "C:\\Users\\mvide\\source\\repos\\DMD\\DMD.Backend\\DMD.Tests\\DMD.Presentation.Tests.csproj",
+      "projectName": "DMD.Presentation.Tests",
+      "projectPath": "C:\\Users\\mvide\\source\\repos\\DMD\\DMD.Backend\\DMD.Tests\\DMD.Presentation.Tests.csproj",
       "packagesPath": "C:\\Users\\mvide\\.nuget\\packages\\",
       "outputPath": "C:\\Users\\mvide\\source\\repos\\DMD\\DMD.Backend\\DMD.Tests\\obj\\",
       "projectStyle": "PackageReference",

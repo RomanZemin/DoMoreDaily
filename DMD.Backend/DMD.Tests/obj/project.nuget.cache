@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "FM+3xzrJmOE=",
+  "dgSpecHash": "9HUB+ZGvSpg=",
   "success": true,
-  "projectFilePath": "C:\\Users\\mvide\\source\\repos\\DMD\\DMD.Backend\\DMD.Tests\\DMD.Tests.csproj",
+  "projectFilePath": "C:\\Users\\mvide\\source\\repos\\DMD\\DMD.Backend\\DMD.Tests\\DMD.Presentation.Tests.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\mvide\\.nuget\\packages\\automapper\\13.0.1\\automapper.13.0.1.nupkg.sha512",
     "C:\\Users\\mvide\\.nuget\\packages\\castle.core\\5.1.1\\castle.core.5.1.1.nupkg.sha512",

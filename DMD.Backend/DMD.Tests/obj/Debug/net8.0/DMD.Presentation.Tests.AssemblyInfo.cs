@@ -11,12 +11,12 @@
 using System;
 using System.Reflection;
 
-[assembly: System.Reflection.AssemblyCompanyAttribute("DMD.Application")]
+[assembly: System.Reflection.AssemblyCompanyAttribute("DMD.Presentation.Tests")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
 [assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+81e8159864a103c66667573b933b5761d670ac9f")]
-[assembly: System.Reflection.AssemblyProductAttribute("DMD.Application")]
-[assembly: System.Reflection.AssemblyTitleAttribute("DMD.Application")]
+[assembly: System.Reflection.AssemblyProductAttribute("DMD.Presentation.Tests")]
+[assembly: System.Reflection.AssemblyTitleAttribute("DMD.Presentation.Tests")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
 
 // Создано классом WriteCodeFragment MSBuild.

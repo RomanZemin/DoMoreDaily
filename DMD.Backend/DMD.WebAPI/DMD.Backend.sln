@@ -19,7 +19,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DMD.Persistence", "..\DMD.P
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DMD.Tests", "DMD.Tests", "{848D533D-76E8-4D78-8190-34060202FCD0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DMD.Tests", "..\DMD.Tests\DMD.Tests.csproj", "{564BD34E-AD93-46BB-A597-21FB1A457123}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DMD.Presentation.Tests", "..\DMD.Tests\DMD.Presentation.Tests.csproj", "{564BD34E-AD93-46BB-A597-21FB1A457123}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
