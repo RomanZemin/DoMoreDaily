@@ -114,13 +114,6 @@ namespace DMD.Persistence.Services
         {
             return await _context.Tasks.AnyAsync(t => t.ParentTaskID == taskId);
         }
-        private bool IsValidStatus(string status)
-        {
-            var validStatuses = new[] { "Назначена", "Выполняется", "Приостановлена", "Завершена" };
-            return validStatuses.Contains(status);
-        }
-
-
         public async Task ChangeTaskStatusAsync(int taskId, string status)
         {
             var task = await _context.Tasks
@@ -130,21 +123,43 @@ namespace DMD.Persistence.Services
             if (task == null)
                 throw new InvalidOperationException("Задача не найдена.");
 
+            if (!IsValidStatus(status))
+                throw new InvalidOperationException("Недопустимый статус задачи.");
+
+            // Проверка на переходы между статусами
             if (status == "Завершена")
             {
+                if (task.Status != "Выполняется")
+                    throw new InvalidOperationException("Задачу можно завершить только после статуса 'Выполняется'.");
+
                 if (task.SubTasks.Any(st => st.Status != "Завершена"))
                     throw new InvalidOperationException("Нельзя завершить задачу, если не завершены все подзадачи.");
-                task.Status = status;
+
+                task.Status = "Завершена";
                 foreach (var subtask in task.SubTasks)
                 {
                     subtask.Status = "Завершена";
                 }
             }
+            else if (status == "Приостановлена")
+            {
+                if (task.Status != "Выполняется")
+                    throw new InvalidOperationException("Статус 'Приостановлена' можно установить только после статуса 'Выполняется'.");
+                task.Status = "Приостановлена";
+            }
             else
             {
+                // Прямое изменение статуса (например, Назначена -> Выполняется)
                 task.Status = status;
             }
+
             await _context.SaveChangesAsync();
+        }
+
+        private bool IsValidStatus(string status)
+        {
+            var validStatuses = new[] { "Назначена", "Выполняется", "Приостановлена", "Завершена" };
+            return validStatuses.Contains(status);
         }
     }
 
