@@ -1,5 +1,5 @@
 <template>
-    <li :style="{ marginLeft: `${indentLevel * 20}px` }" class="task-item">
+    <li :style="{ marginLeft: `${indentLevel * 1}px` }" class="task-item">
         <span @click="selectTask(task)">
             {{ task.taskName }} ({{ task.status }})
             <button @click="selectParentTask(task)" class="add-subtask-button">+</button>
@@ -42,33 +42,56 @@ export default defineComponent({
 
 <style scoped lang="scss">
 .task-item {
-    padding: 8px;
-    border-bottom: 1px solid #333;
-    color: #e0e0e0;
+  padding: 12px;
+  margin-bottom: 8px;
+  border-radius: 8px;
+  background: linear-gradient(90deg, #ffffff, #f0f0f0);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  color: #333;
+  transition: background 0.3s ease, box-shadow 0.3s ease;
 
-    &:last-child {
-        border-bottom: none;
+  &:last-child {
+    margin-bottom: 0;
+  }
+
+  &:hover {
+    background: linear-gradient(90deg, #f0f0f0, #e0e0e0);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+  }
+
+  span {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    font-size: 16px;
+    color: #333;
+    transition: color 0.3s ease;
+
+    &:hover {
+      color: #007bff;
     }
+  }
 
-    span {
-        cursor: pointer;
-        display: flex;
-        align-items: center;
+  .add-subtask-button {
+    background: linear-gradient(90deg, #4caf50, #81c784);
+    border: none;
+    color: #fff;
+    padding: 6px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+    margin-left: 12px;
+    transition: background 0.3s ease;
+
+    &:hover {
+      background: linear-gradient(90deg, #81c784, #4caf50);
     }
+  }
+}
 
-    .add-subtask-button {
-        background-color: #ff5722;
-        border: none;
-        color: #fff;
-        padding: 4px 8px;
-        border-radius: 4px;
-        cursor: pointer;
-        font-size: 14px;
-        margin-left: 8px;
-
-        &:hover {
-            background-color: #e64a19;
-        }
-    }
+ul {
+  list-style-type: none;
+  padding-left: 20px;
+  margin: 0;
 }
 </style>

@@ -4,8 +4,8 @@
         <h2 v-else>Создать основную задачу</h2>
         <h4 v-if="parentTask">К задаче:</h4>
         <input v-if="parentTask" v-model="parentTask.taskName" readonly class="input-field" />
-        <input v-if="parentTask" v-model="newTask.taskName" placeholder="Название подзадачи" class="input-field" />
-        <input v-else v-model="newTask.taskName" placeholder="Название задачи" class="input-field" />
+        <input v-model="newTask.taskName" :placeholder="parentTask ? 'Название подзадачи' : 'Название задачи'"
+            class="input-field" />
         <input v-model="newTask.assignees" placeholder="Исполнитель" class="input-field" />
         <input v-model="newTask.plannedEffort" placeholder="Планируемое усилие" class="input-field" />
         <textarea v-model="newTask.description" placeholder="Описание задачи" class="textarea-field"></textarea>
@@ -15,10 +15,10 @@
             <option>Приостановлена</option>
             <option>Завершена</option>
         </select>
-        <p>
+        <div class="button-group">
             <button @click="createTask" class="create-task-button">Создать задачу</button>
             <button @click="closeForm" class="cancel-button">Отмена</button>
-        </p>
+        </div>
     </div>
 </template>
 
@@ -38,21 +38,20 @@ export default defineComponent({
     data() {
         return {
             newTask: {
-                parentTaskID: this.parentTask ? this.parentTask.id : null, // Привязываем ID родительской задачи
+                parentTaskID: this.parentTask ? this.parentTask.id : null,
                 taskName: '',
                 description: '',
                 assignees: '',
                 registrationDate: new Date().toISOString(),
-                status: 'Назначена',
                 plannedEffort: 0,
                 actualEffort: 0,
-                completionDate: new Date().toISOString()
-            } as Omit<TodoTask, 'id'>
+                status: 'Назначена'
+            } as TodoTask
         };
     },
     methods: {
         async createTask() {
-            if (this.newTask.taskName.trim() === '') {
+            if (!this.newTask.taskName.trim()) {
                 alert('Название задачи не может быть пустым');
                 return;
             }
@@ -74,57 +73,80 @@ export default defineComponent({
 
 <style scoped lang="scss">
 .create-task-form {
-    background-color: #1e1e1e;
-    color: #e0e0e0;
-    padding: 16px;
-    border-radius: 8px;
+    background: linear-gradient(135deg, #f5f5f5, #e0e0e0);
+    color: #333;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+
+    h2 {
+        margin-bottom: 20px;
+        color: #333;
+    }
+
+    .input-field,
+    .textarea-field {
+        background-color: #fff; 
+        color: #333;
+        border: 1px solid #ccc;
+        border-radius: 6px;
+        padding: 12px;
+        margin-bottom: 16px;
+        width: calc(100% - 24px);
+        font-size: 16px;
+    }
+
+    .textarea-field {
+        height: 120px;
+        resize: vertical;
+    }
+
+    .button-group {
+        display: flex;
+        justify-content: flex-end;
+        gap: 10px;
+
+        .create-task-button,
+        .cancel-button {
+            border: none;
+            color: #fff;
+            padding: 10px 20px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s;
+        }
+
+        .create-task-button {
+            background-color: #4caf50;
+            
+            &:hover {
+                background-color: #45a049;
+            }
+        }
+
+        .cancel-button {
+            background-color: #f44336;
+            
+            &:hover {
+                background-color: #e53935;
+            }
+        }
+    }
+
+    .status-select {
+        background: #fff;
+        color: #333;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        padding: 8px;
+        margin-bottom: 12px;
+        transition: background 0.3s ease;
+
+        &:hover {
+            background: #f5f5f5;
+        }
+    }
 }
 
-.input-field,
-.textarea-field {
-    background-color: #333;
-    color: #e0e0e0;
-    border: 1px solid #444;
-    border-radius: 4px;
-    padding: 8px;
-    margin-bottom: 16px;
-    width: 97%;
-}
-
-.textarea-field {
-    height: 100px;
-    resize: vertical;
-}
-
-.status-select {
-    background-color: #333;
-    color: #e0e0e0;
-    border: 1px solid #444;
-    border-radius: 4px;
-    padding: 8px;
-    margin-bottom: 2px;
-}
-
-.create-task-button,
-.cancel-button {
-    background-color: #4caf50;
-    border: none;
-    color: #fff;
-    padding: 8px 16px;
-    border-radius: 4px;
-    cursor: pointer;
-    margin-right: 10px;
-}
-
-.create-task-button:hover {
-    background-color: #45a049;
-}
-
-.cancel-button {
-    background-color: #f44336;
-}
-
-.cancel-button:hover {
-    background-color: #e53935;
-}
 </style>

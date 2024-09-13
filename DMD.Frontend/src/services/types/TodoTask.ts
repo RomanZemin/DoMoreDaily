@@ -1,7 +1,6 @@
 export interface TodoTask {
   id: number;
-  parentTaskID?: number; // Необязательно для подзадач
-  parentTask?: string;
+  parentTaskID: number;
   taskName: string;
   description: string;
   assignees: string;
@@ -9,7 +8,6 @@ export interface TodoTask {
   status: string;
   plannedEffort: number;
   actualEffort: number;
-  completionDate?: string; // Необязательно
   subTasks?: TodoTask[]
 }
 

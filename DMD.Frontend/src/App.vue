@@ -4,13 +4,19 @@
       <h1>Система управления задачами</h1>
     </header>
     <div class="content">
+
+      <!-- Панель для отображения дерева подзадач -->
       <div class="task-tree">
         <button @click="showCreateTaskForm = true" class="create-task-button">Создать основную задачу</button>
-        <TaskList :tasks="tasks" @selectTask="handleTaskSelection" />
+        <TaskList :tasks="tasks" @selectTask="handleTaskSelection" @taskUpdated="handleTaskCreated" />
       </div>
+
+      <!-- Панель для отображения детальной информации о выбранной задаче -->
       <div class="task-details" v-if="selectedTask">
         <TaskDetails :task="selectedTask" @taskDeleted="removeTaskFromList" @taskUpdated="UpdateTaskData" />
       </div>
+
+      <!-- Модальное окно для создания подзадачи -->
       <div v-if="showCreateTaskForm" class="create-task-form-container">
         <CreateTaskForm @taskCreated="handleTaskCreated" @closeForm="showCreateTaskForm = false" />
       </div>
@@ -51,20 +57,25 @@ export default defineComponent({
         console.error('Ошибка при получении задач:', error);
       }
     },
+
     handleTaskSelection(task: TodoTask) {
       this.selectedTask = task;
     },
+
     async removeTaskFromList(taskId: number) {
-      this.tasks = this.tasks.filter(task => task.id !== taskId);
+      this.tasks = await TaskService.getAllTasks();
       this.selectedTask = null;
     },
-    async UpdateTaskData(taskId: number){
+
+    async UpdateTaskData(taskId: number) {
       try {
         this.selectedTask = await TaskService.getTask(taskId);
+        this.tasks = await TaskService.getAllTasks();
       } catch (error) {
         console.error('Ошибка при получении задач:', error);
       }
     },
+
     async handleTaskCreated() {
       this.showCreateTaskForm = false;
       await this.loadTasks();
@@ -75,30 +86,61 @@ export default defineComponent({
 
 <style scoped lang="scss">
 header {
-  background-color: #1f1f1f;
-  color: #e0e0e0;
+  background: linear-gradient(90deg, #ff6f61, #ff9a62);
+  color: #fff;
   padding: 16px;
   text-align: center;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  font-size: 24px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
 }
 
 .content {
   display: flex;
   padding: 20px;
+  background-color: #f4f4f9;
 
-  .create-task-button {
-    background-color: #4caf50;
-    border: none;
-    color: #fff;
-    padding: 8px 16px;
-    border-radius: 4px;
-    cursor: pointer;
-    margin-bottom: 20px;
-    font-size: 16px;
+  .task-tree {
+    flex: 1;
+    background: linear-gradient(120deg, #ffecd2, #fcb69f);
+    border-radius: 12px;
+    padding: 20px;
+    margin-right: 20px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s ease;
+
+    &:hover {
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    }
+
+    .create-task-button {
+      background: linear-gradient(90deg, #43e97b, #38f9d7);
+      border: none;
+      color: #fff;
+      padding: 12px 24px;
+      border-radius: 6px;
+      cursor: pointer;
+      margin-bottom: 20px;
+      font-size: 16px;
+      transition: background 0.3s ease;
+
+      &:hover {
+        background: linear-gradient(90deg, #38f9d7, #43e97b);
+      }
+    }
   }
 
-  .create-task-button:hover {
-    background-color: #45a049;
+  .task-details {
+    flex: 2;
+    background: linear-gradient(120deg, #d4fc79, #96e6a1);
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s ease;
+
+    &:hover {
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    }
   }
 
   .create-task-form-container {
@@ -107,34 +149,23 @@ header {
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.5);
+    background: rgba(0, 0, 0, 0.3);
     display: flex;
     justify-content: center;
     align-items: center;
-  }
 
-  .create-task-form-container > div {
-    background: #1e1e1e;
-    padding: 20px;
-    border-radius: 8px;
-    width: 500px;
-  }
+    > div {
+      background: #fff;
+      padding: 24px;
+      border-radius: 12px;
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+      width: 500px;
+      transition: transform 0.3s ease;
 
-  .task-tree {
-    flex: 1;
-    background-color: #1e1e1e;
-    border-radius: 8px;
-    padding: 20px;
-    margin-right: 20px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-  }
-
-  .task-details {
-    flex: 2;
-    background-color: #1e1e1e;
-    border-radius: 8px;
-    padding: 20px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+      &:hover {
+        transform: scale(1.02);
+      }
+    }
   }
 }
 </style>

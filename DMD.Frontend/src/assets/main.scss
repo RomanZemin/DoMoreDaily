@@ -1,7 +1,23 @@
 body {
-  background-color: #121212;
+  background: #f4f4f9;
   color: #e0e0e0;
-  font-family: Arial, sans-serif;
+  font-family: 'Roboto', sans-serif; /* Используйте Roboto для современного вида */
   margin: 0;
   padding: 0;
+  line-height: 1.6; /* Увеличьте межстрочный интервал для лучшей читаемости */
+}
+
+a {
+  color: #3498db; /* Яркий цвет для ссылок */
+  text-decoration: none; /* Удалите подчеркивание ссылок */
+}
+
+a:hover {
+  text-decoration: underline; /* Подчеркивание при наведении */
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
 }

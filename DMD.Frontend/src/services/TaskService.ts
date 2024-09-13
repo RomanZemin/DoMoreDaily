@@ -6,7 +6,6 @@ const API_URL = 'http://localhost:5108/api/Task';
 export default {
   async getAllTasks(): Promise<TodoTask[]> {
     const response = await axios.get(API_URL);
-    console.log(response.data)
     return response.data;
   },
 
@@ -20,10 +19,6 @@ export default {
     return response.data;
   },
 
-  async createSubTask(subTask: Omit<TodoTask, 'id'>): Promise<void> {
-    await axios.post(API_URL, subTask);
-  },
-
   async updateTask(task: TodoTask): Promise<void> {
     const response = await axios.put(`${API_URL}/${task.id}`, task);
     return response.data;
@@ -34,7 +29,7 @@ export default {
     return response.data;
   },
 
-  async changeTaskStatus(id: number, status: string): Promise<void> {
+  async changeTaskStatus(id: number, status: string): Promise<Object> {
     const response = await axios.patch(`${API_URL}/${id}/status`, status, {
       headers: { 'Content-Type': 'application/json' }
     });
