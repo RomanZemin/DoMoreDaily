@@ -1,6 +1,6 @@
 [
   {
-    "ContainingType": "DMD_API.Controllers.TaskController",
+    "ContainingType": "DMD.API.Controllers.TaskController",
     "Method": "GetTasks",
     "RelativePath": "api/Task",
     "HttpMethod": "GET",
@@ -10,7 +10,7 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "DMD_API.Controllers.TaskController",
+    "ContainingType": "DMD.API.Controllers.TaskController",
     "Method": "CreateTask",
     "RelativePath": "api/Task",
     "HttpMethod": "POST",
@@ -26,7 +26,7 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "DMD_API.Controllers.TaskController",
+    "ContainingType": "DMD.API.Controllers.TaskController",
     "Method": "GetTask",
     "RelativePath": "api/Task/{id}",
     "HttpMethod": "GET",
@@ -42,7 +42,7 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "DMD_API.Controllers.TaskController",
+    "ContainingType": "DMD.API.Controllers.TaskController",
     "Method": "UpdateTask",
     "RelativePath": "api/Task/{id}",
     "HttpMethod": "PUT",
@@ -63,7 +63,7 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "DMD_API.Controllers.TaskController",
+    "ContainingType": "DMD.API.Controllers.TaskController",
     "Method": "DeleteTask",
     "RelativePath": "api/Task/{id}",
     "HttpMethod": "DELETE",
@@ -79,7 +79,7 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "DMD_API.Controllers.TaskController",
+    "ContainingType": "DMD.API.Controllers.TaskController",
     "Method": "ChangeTaskStatus",
     "RelativePath": "api/Task/{id}/status",
     "HttpMethod": "PATCH",

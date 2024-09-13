@@ -1,9 +1,11 @@
 ﻿using AutoMapper;
+using Microsoft.EntityFrameworkCore;
+
 using DMD.Application.DTOs;
 using DMD.Application.Interfaces;
 using DMD.Domain.Entities;
 using DMD.Persistence.Data;
-using Microsoft.EntityFrameworkCore;
+using DMD.Persistence.Exceptions;
 
 namespace DMD.Persistence.Services
 {
@@ -95,10 +97,12 @@ namespace DMD.Persistence.Services
             _context.Tasks.Remove(task);
             await _context.SaveChangesAsync();
         }
+
         private async Task<bool> HasSubTasksAsync(int taskId)
         {
             return await _context.Tasks.AnyAsync(t => t.ParentTaskID == taskId);
         }
+
         public async Task ChangeTaskStatusAsync(int taskId, string status)
         {
             var task = await _context.Tasks
@@ -106,18 +110,18 @@ namespace DMD.Persistence.Services
                 .FirstOrDefaultAsync(t => t.Id == taskId);
 
             if (task == null)
-                throw new InvalidOperationException("Задача не найдена.");
+                throw new TaskNotFoundException("Задача не найдена.");
 
-            if (!IsValidStatus(status))
-                throw new InvalidOperationException("Недопустимый статус задачи.");
+            if (!TaskServiceHelper.IsValidStatus(status))
+                throw new InvalidTaskStatusException("Недопустимый статус задачи.");
 
             if (status == "Завершена")
             {
                 if (task.Status != "Выполняется")
-                    throw new InvalidOperationException("Задачу можно завершить только после статуса 'Выполняется'.");
+                    throw new InvalidTaskStatusException("Задачу можно завершить только после статуса 'Выполняется'.");
 
                 if (task.SubTasks.Any(st => st.Status != "Завершена"))
-                    throw new InvalidOperationException("Нельзя завершить задачу, если не завершены все подзадачи.");
+                    throw new InvalidTaskStatusException("Нельзя завершить задачу, если не завершены все подзадачи.");
 
                 task.Status = "Завершена";
                 foreach (var subtask in task.SubTasks)
@@ -128,7 +132,7 @@ namespace DMD.Persistence.Services
             else if (status == "Приостановлена")
             {
                 if (task.Status != "Выполняется")
-                    throw new InvalidOperationException("Статус 'Приостановлена' можно установить только после статуса 'Выполняется'.");
+                    throw new InvalidTaskStatusException("Статус 'Приостановлена' можно установить только после статуса 'Выполняется'.");
                 task.Status = "Приостановлена";
             }
             else
@@ -139,10 +143,5 @@ namespace DMD.Persistence.Services
             await _context.SaveChangesAsync();
         }
 
-        private bool IsValidStatus(string status)
-        {
-            var validStatuses = new[] { "Назначена", "Выполняется", "Приостановлена", "Завершена" };
-            return validStatuses.Contains(status);
-        }
     }
 }

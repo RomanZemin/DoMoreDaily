@@ -1,7 +1,8 @@
-﻿using DMD.Persistence.Data;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+
+using DMD.Persistence.Data;
 
 namespace DMD.Persistence.Extensions
 {

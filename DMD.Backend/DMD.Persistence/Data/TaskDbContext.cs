@@ -1,5 +1,6 @@
-﻿using DMD.Domain.Entities;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
+
+using DMD.Domain.Entities;
 
 namespace DMD.Persistence.Data
 {
@@ -11,13 +12,14 @@ namespace DMD.Persistence.Data
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            // Ограничения на подзадачи
             modelBuilder.Entity<TodoTask>()
-                .HasMany(t => t.SubTasks) // Указывает, что одна задача может иметь множество подзадач
+                .HasMany(t => t.SubTasks) // Одна задача может иметь множество подзадач
                 .WithOne() // Не имеет родительской задачи, это будет настроено через внешний ключ
                 .HasForeignKey(t => t.ParentTaskID) // Указывает, что ParentTaskID является внешним ключом
                 .OnDelete(DeleteBehavior.Cascade); // Удаление задачи удаляет её подзадачи
 
-            // Ограничение на статус задачи
+            // Ограничения на статус задачи
             modelBuilder.Entity<TodoTask>()
                 .Property(t => t.Status)
                 .HasConversion<string>() // Преобразование статуса в строку
@@ -25,7 +27,7 @@ namespace DMD.Persistence.Data
                 .HasDefaultValue("Назначена") // Значение по умолчанию
                 .IsRequired(); // Статус обязателен
 
-            // Добавление ограничения CHECK для статусов
+            
             modelBuilder.Entity<TodoTask>()
                 .ToTable(t => t.HasCheckConstraint("CK_Task_Status", "Status IN ('Назначена', 'Выполняется', 'Приостановлена', 'Завершена')"));
 

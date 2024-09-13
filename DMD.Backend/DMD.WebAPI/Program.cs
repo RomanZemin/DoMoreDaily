@@ -1,8 +1,9 @@
+using System.Text.Json.Serialization;
+
 using DMD.Application.Interfaces;
 using DMD.Application.Mappings;
 using DMD.Persistence.Extensions;
 using DMD.Persistence.Services;
-using System.Text.Json.Serialization;
 
 namespace DMD.WebAPI
 {
