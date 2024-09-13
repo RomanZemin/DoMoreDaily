@@ -1,10 +1,9 @@
 ﻿using AutoMapper;
-using DMD.Persistence.Data;
-using DMD.Application.Interfaces;
-using Microsoft.EntityFrameworkCore;
-using DMD.Domain.Entities;
 using DMD.Application.DTOs;
-using System.Threading.Tasks;
+using DMD.Application.Interfaces;
+using DMD.Domain.Entities;
+using DMD.Persistence.Data;
+using Microsoft.EntityFrameworkCore;
 
 namespace DMD.Persistence.Services
 {
@@ -21,20 +20,16 @@ namespace DMD.Persistence.Services
 
         public async Task<IEnumerable<TaskDto>> GetAllTasksAsync()
         {
-            // Загружаем все задачи и подзадачи одним запросом
             var allTasks = await _context.Tasks
                 .AsNoTracking()
                 .ToListAsync();
 
-            // Рекурсивный метод для маппинга подзадач
             TaskDto MapTask(TodoTask task, List<TodoTask> allTasks)
             {
                 var taskDto = _mapper.Map<TaskDto>(task);
 
-                // Найти подзадачи для текущей задачи
                 var subTasks = allTasks.Where(t => t.ParentTaskID == task.Id).ToList();
 
-                // Если подзадачи найдены, рекурсивно маппим их
                 if (subTasks.Any())
                 {
                     taskDto.SubTasks = subTasks.Select(subTask => MapTask(subTask, allTasks)).ToList();
@@ -43,13 +38,11 @@ namespace DMD.Persistence.Services
                 return taskDto;
             }
 
-            // Ищем все верхнеуровневые задачи (без ParentTaskID)
             var rootTasks = allTasks
                 .Where(t => t.ParentTaskID == null)
                 .OrderBy(t => t.TaskName)
                 .ToList();
 
-            // Обрабатываем все верхнеуровневые задачи и рекурсивно маппим подзадачи
             var result = rootTasks.Select(task => MapTask(task, allTasks)).ToList();
 
             return result;
@@ -66,13 +59,11 @@ namespace DMD.Persistence.Services
         public async Task CreateTaskAsync(TodoTask task)
         {
             task.RegistrationDate = task.RegistrationDate.ToUniversalTime();
-
-            // Если у задачи есть подзадачи, нужно убедиться, что они не будут добавлены повторно.
             if (task.SubTasks != null && task.SubTasks.Any())
             {
                 foreach (var subTask in task.SubTasks)
                 {
-                    subTask.ParentTaskID = task.Id; // Убедимся, что у подзадач корректно проставлен ParentTaskID
+                    subTask.ParentTaskID = task.Id;
                 }
             }
 
@@ -82,15 +73,12 @@ namespace DMD.Persistence.Services
 
         public async Task UpdateTaskAsync(TodoTask task)
         {
-            // Проверяем, если дата не в UTC и у неё неопределённый Kind, конвертируем в UTC
             if (task.RegistrationDate.Kind == DateTimeKind.Unspecified)
             {
-                // Предположим, что неуказанный Kind - это местное время, конвертируем в UTC
                 task.RegistrationDate = DateTime.SpecifyKind(task.RegistrationDate, DateTimeKind.Local).ToUniversalTime();
             }
             else if (task.RegistrationDate.Kind == DateTimeKind.Local)
             {
-                // Если это местное время, конвертируем его в UTC
                 task.RegistrationDate = task.RegistrationDate.ToUniversalTime();
             }
 
@@ -103,9 +91,6 @@ namespace DMD.Persistence.Services
             var task = await _context.Tasks.FindAsync(id);
             if (task == null)
                 throw new InvalidOperationException("Задача не найдена.");
-
-            //if (await HasSubTasksAsync(id))
-            //    throw new InvalidOperationException("Невозможно удалить задачу с подзадачами.");
 
             _context.Tasks.Remove(task);
             await _context.SaveChangesAsync();
@@ -126,7 +111,6 @@ namespace DMD.Persistence.Services
             if (!IsValidStatus(status))
                 throw new InvalidOperationException("Недопустимый статус задачи.");
 
-            // Проверка на переходы между статусами
             if (status == "Завершена")
             {
                 if (task.Status != "Выполняется")
@@ -149,7 +133,6 @@ namespace DMD.Persistence.Services
             }
             else
             {
-                // Прямое изменение статуса (например, Назначена -> Выполняется)
                 task.Status = status;
             }
 
@@ -162,5 +145,4 @@ namespace DMD.Persistence.Services
             return validStatuses.Contains(status);
         }
     }
-
 }

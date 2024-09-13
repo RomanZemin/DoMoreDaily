@@ -1,6 +1,6 @@
 ﻿using AutoMapper;
-using DMD.Domain.Entities;
 using DMD.Application.DTOs;
+using DMD.Domain.Entities;
 
 namespace DMD.Application.Mappings
 {

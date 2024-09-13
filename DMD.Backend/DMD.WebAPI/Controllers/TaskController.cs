@@ -1,6 +1,6 @@
-using Microsoft.AspNetCore.Mvc;
-using DMD.Domain.Entities;
 using DMD.Application.Interfaces;
+using DMD.Domain.Entities;
+using Microsoft.AspNetCore.Mvc;
 
 namespace DMD_API.Controllers
 {

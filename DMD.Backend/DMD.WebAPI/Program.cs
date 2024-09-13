@@ -4,7 +4,6 @@ using DMD.Persistence.Extensions;
 using DMD.Persistence.Services;
 using System.Text.Json.Serialization;
 
-
 namespace DMD.WebAPI
 {
     public class Program
@@ -13,7 +12,6 @@ namespace DMD.WebAPI
         {
             var builder = WebApplication.CreateBuilder(args);
 
-
             builder.Services.AddAppDbContext(builder.Configuration);
             builder.Services.AddScoped<ITaskService, TaskService>();
             builder.Services.AddAutoMapper(typeof(TaskMappingProfile));
@@ -21,8 +19,8 @@ namespace DMD.WebAPI
             builder.Services.AddControllers()
                 .AddJsonOptions(options =>
                 {
-                    options.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.IgnoreCycles; // Убираем циклические ссылки
-                    options.JsonSerializerOptions.DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingNull; // Убираем null значения
+                    options.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.IgnoreCycles;
+                    options.JsonSerializerOptions.DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingNull;
                 });
 
             builder.Services.AddCors(options =>
@@ -47,7 +45,7 @@ namespace DMD.WebAPI
             }
 
             app.UseHttpsRedirection();
-            app.UseCors("AllowAllOrigins"); //Временное решение
+            app.UseCors("AllowAllOrigins");
 
             app.UseAuthorization();
 

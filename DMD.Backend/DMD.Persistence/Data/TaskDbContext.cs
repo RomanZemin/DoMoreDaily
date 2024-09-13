@@ -1,5 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
-using DMD.Domain.Entities;
+﻿using DMD.Domain.Entities;
+using Microsoft.EntityFrameworkCore;
 
 namespace DMD.Persistence.Data
 {
@@ -37,5 +37,4 @@ namespace DMD.Persistence.Data
                 .IsRequired();
         }
     }
-
 }
