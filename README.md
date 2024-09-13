@@ -23,6 +23,7 @@
   <li>src/components/EditTaskForm.vue - Компонент для редактирования задач.</li>
   <li>src/components/TaskDetails.vue - Компонент для отображения деталей задачи.</li>
   <li>src/components/TaskList.vue - Компонент для отображения списка задач.</li>
+  <li>src/components/TaskItem.vue - Компонент для отображения одной задачи.</li>
   <li>src/services/TaskService.ts - Сервис для работы с API задач.</li>
   <li>src/services/types/TodoTask.ts - Типы для задач.</li>
 </ul>
