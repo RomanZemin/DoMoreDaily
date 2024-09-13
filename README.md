@@ -11,6 +11,9 @@
   <li>DMD.Backend/DMD.Presentation/DMD.WebAPI - Web API.</li>
   <li>DMD.Backend/DMD.Tests/DMD.Presentation.Tests - Unit тесты.</li>
 </ul>
+<p align="center">
+  <img width="638" height="657" src="https://i.imgur.com/5vMXImJ.png">
+</p>
 
 <h3>Frontend</h3>
 Проект на Vue.js. Структура проекта:
@@ -23,6 +26,12 @@
   <li>src/services/TaskService.ts - Сервис для работы с API задач.</li>
   <li>src/services/types/TodoTask.ts - Типы для задач.</li>
 </ul>
+<p align="center">
+  <img width="770" height="657" src="https://i.imgur.com/xUQFhGd.png">
+</p>
+<p align="center">
+  <img width="770" height="657" src="https://i.imgur.com/PvgFKv5.png">
+</p>
 
 <h2>Запуск проекта</h2>
 <h3>Frontend</h3>
