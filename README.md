@@ -25,9 +25,17 @@
 </ul>
 
 <h2>Запуск проекта</h2>
-<h3>Backend</h3>
+<h3>Frontend</h3>
 1. Убедитесь, что у вас установлен Node.js.
 2. Перейдите в директорию фронтенда и выполните следующие команды:
+
+```bash
+npm install
+npm run dev
+```
+<h3>Backend</h3>
+1. Откройте решение DMD.Backend\DMD.WebAPI\DMD.Backend.sln в Visual Studio или другой IDE, поддерживающей .NET.
+2. Выполните команды для установки зависимостей и запуска:
 
 ```bash
 dotnet restore
