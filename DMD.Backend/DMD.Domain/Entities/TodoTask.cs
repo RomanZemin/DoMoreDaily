@@ -3,7 +3,6 @@
     {
         public int Id { get; set; }
         public int? ParentTaskID { get; set; }
-        public TodoTask? ParentTask { get; set; }
         public string? TaskName { get; set; } 
         public string? Description { get; set; } 
         public string? Assignees { get; set; } 
@@ -12,7 +11,6 @@
         public decimal PlannedEffort { get; set; }
         public decimal ActualEffort { get; set; }
         public DateTime? CompletionDate { get; set; }
-
         public List<TodoTask> SubTasks { get; set; } = new List<TodoTask>();
     }
 }

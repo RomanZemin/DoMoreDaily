@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("DMD.WebAPI")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+c1eae68d968c57c93cf0e3e431bcee2834b7155e")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+9f1703312fd356c1f219537fe841f1c47decd5dc")]
 [assembly: System.Reflection.AssemblyProductAttribute("DMD.WebAPI")]
 [assembly: System.Reflection.AssemblyTitleAttribute("DMD.WebAPI")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
