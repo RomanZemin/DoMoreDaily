@@ -4,6 +4,7 @@
 <h2>Структура проекта</h2>
 
 <h3>Backend</h3>
+
 Проект на C# с использованием EntityFramework Core и Clean Architecture. Структура проекта:
 <ul>
   <li>DMD.Backend/DMD.Core/DMD.Application - Приложение и бизнес-логика.</li>
@@ -17,6 +18,7 @@
 </p>
 
 <h3>Frontend</h3>
+
 Проект на Vue.js. Структура проекта:
 <ul>
   <li>src/App.vue - Главный компонент приложения.</li>
